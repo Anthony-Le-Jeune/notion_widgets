@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+	<!-- Google Font -->
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
+	<!-------->
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+
+		.navMenu {
+			font-family: 'Advent Pro', sans-serif;
+			padding: 8px;
+			text-align: center;
+			margin: 7px auto;
+			width: fit-content;
+		}
+
+		.navMenu a {
+			color: #272727;
+			text-decoration: none;
+			text-transform: uppercase;
+			display: inline-block;
+			padding: 6px;
+		}
+
+		.background {
+			background-color: #cecdd4;
+		}
+
+		.border {
+			border: 2px solid #cccccc;
+
+		}
+
+		.navMenu a:hover {
+
+			color: #d09c0b;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navMenu  border background">
+		<a id="home" onclick="navigate(this.id)" href="#"> <i class="fa-solid fa-house"></i> Home</a>
+    <a id="Meliora" onclick="navigate(this.id)" href="#"> Meliora</a>
+    <a id="F.I.R.E" onclick="navigate(this.id)" href="#"> F.I.R.E</a>
+    <a id="R.E.D" onclick="navigate(this.id)" href="#"> R.E.D</a>
+    <a id="S.T.A.R.S" onclick="navigate(this.id)" href="#"> S.T.A.R.S</a>
+    <a id="Members" onclick="navigate(this.id)" href="#"> Members</a>
+    <a id="Sponsorships" onclick="navigate(this.id)" href="#"> Sponsorships</a>
+    <a id="Join" onclick="navigate(this.id)" href="#"> Join</a>
+    <a id="Official-site" onclick="navigate(this.id)" href="#"> Official-site</a>
+		
+
+
+	</nav>
+
+
+	<script>
+
+		let direction = "horizontal";
+		if (direction === "vertical") {
+			document.head.insertAdjacentHTML("beforeend", `<style>.navMenu a {display: block; text-align:left; margin:7px} i{width:15px; margin-right:5px} .navMenu{margin:3px}</style>`)
+		}
+
+
+		function navigate(id) {
+
+			if (id == 'home')
+				window.open("https://charming-ice-3a0.notion.site/UCL-Rocket-264dada58a6944dbb08cd054ea97d092?pvs=4", '_blank').focus();
+
+      else if (id == 'Meliora')
+				window.open("https://charming-ice-3a0.notion.site/Meliora-a87a79038e3e4553b5ebf830df5f3fc7?pvs=4", '_blank').focus();
+
+      else if (id == 'F.I.R.E')
+				window.open("https://charming-ice-3a0.notion.site/F-I-R-E-e65abd63a21e4523ae6ef8373862d5c9?pvs=4", '_blank').focus();
+
+      else if (id == 'R.E.D')
+				window.open("https://charming-ice-3a0.notion.site/R-E-D-88dddcaafebf4473bf937d14f97e4231?pvs=4", '_blank').focus();
+
+      else if (id == 'S.T.A.R.S')
+				window.open("https://charming-ice-3a0.notion.site/S-T-A-R-S-684d2350e1d54d13beb7ef728420bce9?pvs=4", '_blank').focus();
+        
+      else if (id == 'Members')
+				window.open("https://charming-ice-3a0.notion.site/Members-12ee16b8e9164ab7baf57dc8f5dc1d66?pvs=4", '_blank').focus();
+        
+      else if (id == 'Sponsorships')
+				window.open("https://charming-ice-3a0.notion.site/Sponsorships-3b7f132da6a84bc6b3721fcf37532e9e?pvs=4", '_blank').focus();
+
+      else if (id == 'Join')
+				window.open("https://charming-ice-3a0.notion.site/Join-Us-d9897845a4634efd8895b04feb0e3540?pvs=4", '_blank').focus();
+
+      else if (id == 'Official-site')
+				window.open("https://alejeune12082004.wixsite.com/ucl-rocket", '_blank').focus();
+			
+
+		}
+	</script>
+
+
+</body>
+
+</html>
