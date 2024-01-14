@@ -44,7 +44,7 @@ body {
 
 
 .slide:first-child {
-  background: url("78654678.png") no-repeat
+  background: url("45676958.png") no-repeat
     center top/cover;
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 .slide:nth-child(3) {
-  background: url("45676958.png") no-repeat
+  background: url("78654678.png") no-repeat
     center top/cover;
 }
 
