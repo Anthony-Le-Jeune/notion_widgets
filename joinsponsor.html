@@ -253,8 +253,8 @@
         		// For email links, open the mail client with the specified email and subject
       			  window.open(url, '_parent').focus();
     		} else {
-        		// For other links, navigate to the specified URL
-       		 window.location.href = url;
+        		// For email links, open the mail client with the specified email and subject
+      			  window.open(url, '_blank').focus();
     		}
 	}
 </script>
