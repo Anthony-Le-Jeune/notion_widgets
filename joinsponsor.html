@@ -251,10 +251,10 @@
 	function navigate(url) {
     		if (url.startsWith('mailto:')) {
         		// For email links, open the mail client with the specified email and subject
-      			  window.open(url, '_parent').focus();
+      			  window.open(url, '_blank').focus();
     		} else {
         		// For email links, open the mail client with the specified email and subject
-      			  window.open(url, '_blank').focus();
+      			  window.open(url, '_parent').focus();
     		}
 	}
 </script>
