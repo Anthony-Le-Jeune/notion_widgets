@@ -250,14 +250,14 @@
 
   <script>
      function navigate(url) {
-    if (url.startsWith('mailto:')) {
-        // For email links, open the mail client with the specified email and subject
-        window.open(url, '_parent').focus();
-    } else {
-        // For other links, navigate to the specified URL
-        window.location.href = url;
-    }
-}
+    		if (url.startsWith('mailto:')) {
+        		// For email links, open the mail client with the specified email and subject
+      			  window.open(url, '_blank').focus();
+    		} else {
+        		// For email links, open the mail client with the specified email and subject
+      			  window.open(url, '_parent').focus();
+    		}
+	}
   </script>
 
 </body>
