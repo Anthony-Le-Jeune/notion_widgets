@@ -244,15 +244,20 @@
 
 <body>
 
-	<button class="btn large my-color rounded threeD" type="button" onclick="navigate('https://charming-ice-3a0.notion.site/Join-Us-d9897845a4634efd8895b04feb0e3540?pvs=4')"> Join Us</button>
-	<button class="btn large purple rounded threeD" type="button" onclick="navigate('https://charming-ice-3a0.notion.site/Sponsorships-3b7f132da6a84bc6b3721fcf37532e9e')"> Sponsor Us</button>
-  
-  
-  <script>
-     function navigate(url) {
-      window.open(url, '_parent').focus();
-    }
-  </script>
+	<button class="btn large my-color rounded threeD" type="button" onclick="navigate('https://charming-ice-3a0.notion.site/Join-Us-d9897845a4634efd8895b04feb0e3540?pvs=4')">Join Us</button>
+	<button class="btn large purple rounded threeD" type="button" onclick="navigate('mailto:ibrahim.chehimi.21@ucl.ac.uk?subject=Looking%20to%20Sponsor')">Sponsor Us</button>
+
+<script>
+	function navigate(url) {
+    		if (url.startsWith('mailto:')) {
+        		// For email links, open the mail client with the specified email and subject
+      			  window.open(url, '_parent').focus();
+    		} else {
+        		// For other links, navigate to the specified URL
+       		 window.location.href = url;
+    		}
+	}
+</script>
 
 </body>
 
