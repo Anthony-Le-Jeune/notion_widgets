@@ -248,8 +248,12 @@
   
   <script>
     function navigate() {
-      window.open("https://charming-ice-3a0.notion.site/Sponsorships-3b7f132da6a84bc6b3721fcf37532e9e", '_parent').focus();
-    }
+    var email = "ibrahim.chehimi.21@ucl.ac.uk";
+    var subject = "Looking to Sponsor";
+    var mailtoLink = "mailto:" + email + "?subject=" + encodeURIComponent(subject);
+
+    window.open(mailtoLink, '_blank').focus();
+}
   </script>
 
 </body>
