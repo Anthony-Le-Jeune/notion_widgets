@@ -52,6 +52,12 @@
 
 			color: #d09c0b;
 		}
+
+		/* Additional style for dark mode */
+		.dark-mode .navMenu a {
+			color: #ffffff;
+		}
+		
 	</style>
 </head>
 
@@ -73,6 +79,15 @@
 
 
 	<script>
+
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+			if (isDarkMode) {
+				document.body.classList.add('dark-mode');
+			}
+		});
 
 		let direction = "horizontal";
 		if (direction === "vertical") {
