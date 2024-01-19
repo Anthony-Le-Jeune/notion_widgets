@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Embedded Video</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
-  <div style="position: relative; left: 50px; top: 20px;">
-    <video width="640" height="360" controls>
-      <source src="https://anthony-le-jeune.github.io/notion_widgets/UCLRocketHomeBannerVideo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+  <video controls>
+    <source src="https://anthony-le-jeune.github.io/notion_widgets/UCLRocketHomeBannerVideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
 </body>
 </html>
