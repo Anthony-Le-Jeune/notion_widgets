@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Optional: Add some padding around the image */
+    .gif-container {
+      padding: 10px;
+    }
+  </style>
+  <title>HTML GIF Example</title>
+</head>
+<body>
+
+<div class="gif-container">
+  <!-- Replace the URL with the actual URL of your GIF -->
+  <img src="https://anthony-le-jeune.github.io/notion_widgets/HomePagePictures/RocketHomeBanner.gif" alt="Rocket GIF" width="245" height="47">
+</div>
+
+</body>
+</html>
