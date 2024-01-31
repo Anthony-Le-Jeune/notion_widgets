@@ -57,16 +57,13 @@
             opacity: 1;
         }
 
-        .buttons button#prev {
+       .buttons {
             position: absolute;
             top: 50%;
-            left: 1rem;
-        }
-
-        .buttons button#next {
-            position: absolute;
-            top: 50%;
-            right: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
         }
 
         .buttons button {
@@ -75,8 +72,6 @@
             color: #e5ebf3;
             cursor: pointer;
             padding: 13px 15px;
-            border-radius: 50%;
-            outline: none;
         }
 
         .buttons button:hover {
@@ -115,11 +110,11 @@
                 <div class="slide"
                     style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png') no-repeat center top/cover;">
                 </div>
+
+                 <div class="buttons">
+                <button id="prev"><i class="fas fa-arrow-left"></i></button>
+                <button id="next"><i class="fas fa-arrow-right"></i></button>
             </div>
-        </div>
-        <div class="buttons">
-            <button id="prev"><i class="fas fa-arrow-left"></i></button>
-            <button id="next"><i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 
