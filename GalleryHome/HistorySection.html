@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+"<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,29 +18,30 @@
             font-family: 'Source Sans Pro', sans-serif;
         }
 
-.content-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure .content-container takes up at least the height of the viewport */
-}
+        .content-container {
+            display: flex;
+            flex: 1;
+            min-height: 100vh
+        }
 
-.text-container {
-    flex: 1;
-    padding: 20px;
-    font-size: 16px;
-    min-height: 100%; /* Ensure .text-container takes up at least the height of the viewport */
-}
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            font-size: 16px;
+            min-height: 100%;
+        }
+        
+        .text-container h2 {
+            font-size: 28px; /* Change the value to your desired font size */
+        }
 
-.text-container h2 {
-    font-size: 28px;
-}
 
-.slider-container {
-    flex: 1;
-    height: 100%; /* Make .slider-container take up the full height of .content-container */
-    position: relative;
-    overflow: hidden;
-}
+        .slider-container {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
         .slider {
             position: absolute;
