@@ -9,6 +9,69 @@
     <link rel="stylesheet" href="./style.css">
     <style>
         /* Add your existing styles here */
+
+        .content-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .text-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .slider-container {
+            flex: 1;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            background-size: cover;
+            background-position: center top;
+        }
+
+        .slide.current {
+            opacity: 1;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .buttons button {
+            border: 2px solid #e5ebf3;
+            background-color: transparent;
+            color: #e5ebf3;
+            cursor: pointer;
+            padding: 13px 15px;
+            border-radius: 50%;
+            outline: none;
+        }
+
+        .buttons button:hover {
+            background-color: #e5ebf3;
+            color: #362a2b;
+        }
     </style>
 </head>
 
@@ -29,22 +92,18 @@
                     America Cup, the biggest student rocketry competition in the world, <strong> <span
                             style="color: #ffdf00;">beating out over 100 </span></strong> global contenders. </em></p>
         </div>
-        <div class="slider">
-            <div class="slide current">
-                <!-- Content for first slide goes here -->
-            </div>
-            <div class="slide" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/45676958.png') no-repeat center top/cover;">
-                <!-- Content for second slide goes here -->
-            </div>
-            <div class="slide" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/345678954.png') no-repeat center top/cover;">
-                <!-- Content for third slide goes here -->
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide current" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/45676958.png') no-repeat center top/cover;"></div>
+                <div class="slide" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/345678954.png') no-repeat center top/cover;"></div>
+                <div class="slide" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png') no-repeat center top/cover;"></div>
+
+                <div class="buttons">
+                    <button id="prev"><i class="fas fa-arrow-left"></i></button>
+                    <button id="next"><i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="buttons">
-        <button id="prev"><i class="fas fa-arrow-left"></i></button>
-        <button id="next"><i class="fas fa-arrow-right"></i></button>
     </div>
 
     <script>
@@ -58,21 +117,15 @@
         const nextSlide = () => {
             const current = document.querySelector(".current");
             current.classList.remove("current");
-            if (current.nextElementSibling) {
-                current.nextElementSibling.classList.add("current");
-            } else {
-                slides[0].classList.add("current");
-            }
+            const next = current.nextElementSibling || slides[0];
+            next.classList.add("current");
         };
 
         const prevSlide = () => {
             const current = document.querySelector(".current");
             current.classList.remove("current");
-            if (current.previousElementSibling) {
-                current.previousElementSibling.classList.add("current");
-            } else {
-                slides[slides.length - 1].classList.add("current");
-            }
+            const prev = current.previousElementSibling || slides[slides.length - 1];
+            prev.classList.add("current");
         };
 
         nextButton.addEventListener("click", () => {
