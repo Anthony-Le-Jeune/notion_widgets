@@ -31,18 +31,21 @@
             height: calc(100vh - 40px); /* Adjust the height based on your design */
             position: relative;
             overflow: hidden;
-            display: flex;
         }
 
         .slider {
-            position: relative;
-            flex: 1;
-            display: flex;
-            transition: transform 0.4s ease-in-out;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
         }
 
         .slide {
-            flex: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
             opacity: 0;
             transition: opacity 0.4s ease-in-out;
@@ -72,7 +75,8 @@
             color: #e5ebf3;
             cursor: pointer;
             padding: 13px 15px;
-        }
+        }  padding: 13px 15px;
+    
 
         .buttons button:hover {
             background-color: #e5ebf3;
@@ -101,13 +105,13 @@
         <div class="slider-container">
             <div class="slider">
                 <div class="slide current"
-                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/45676958.png')">
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/45676958.png') no-repeat center top/cover;">
                 </div>
                 <div class="slide"
-                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/345678954.png')">
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/345678954.png') no-repeat center top/cover;">
                 </div>
                 <div class="slide"
-                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png')">
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png') no-repeat center top/cover;">
                 </div>
             </div>
             <div class="buttons">
@@ -124,26 +128,19 @@
         const auto = true;
         const intervalTime = 5000;
         let slideInterval;
-        let currentIndex = 0;
-
-        const showSlide = (index) => {
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.add("current");
-                } else {
-                    slide.classList.remove("current");
-                }
-            });
-        };
 
         const nextSlide = () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
+            const current = document.querySelector(".current");
+            current.classList.remove("current");
+            const next = current.nextElementSibling || slides[0];
+            next.classList.add("current");
         };
 
         const prevSlide = () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
+            const current = document.querySelector(".current");
+            current.classList.remove("current");
+            const prev = current.previousElementSibling || slides[slides.length - 1];
+            prev.classList.add("current");
         };
 
         nextButton.addEventListener("click", () => {
