@@ -60,11 +60,9 @@
         .buttons {
             position: absolute;
             top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
             display: flex;
-            flex-direction: column;
             align-items: center;
+            width: 100%;
         }
 
         .buttons button {
@@ -72,7 +70,7 @@
             background-color: transparent;
             color: #e5ebf3;
             cursor: pointer;
-            margin-bottom: 10px;
+            margin: 0 10px;
             padding: 13px 15px;
         }
 
@@ -80,6 +78,15 @@
             background-color: #e5ebf3;
             color: #362a2b;
         }
+
+        .buttons #prev {
+            margin-right: auto;
+        }
+
+        .buttons #next {
+            margin-left: auto;
+        }
+
     </style>
 </head>
 
