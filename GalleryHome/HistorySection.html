@@ -1,4 +1,4 @@
-"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <style>
         /* Add your existing styles here */
-
+        
         body {
             margin: 0;
             display: flex;
@@ -34,7 +34,6 @@
         .text-container h2 {
             font-size: 28px; /* Change the value to your desired font size */
         }
-
 
         .slider-container {
             flex: 1;
@@ -67,35 +66,34 @@
             opacity: 1;
         }
 
-.buttons button#prev {
-    position: absolute;
-    top: 25%;
-    left: 1rem;
-    transform: translateY(-50%);
-}
+        .buttons button#prev {
+            position: absolute;
+            top: 25%;
+            left: 1rem;
+            transform: translateY(-50%);
+        }
 
-.buttons button#next {
-    position: absolute;
-    top: 25%;
-    right: 1rem;
-    transform: translateY(-50%);
-}
+        .buttons button#next {
+            position: absolute;
+            top: 25%;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
 
-.buttons button {
-    border: 2px solid #e5ebf3;
-    background-color: transparent;
-    color: #e5ebf3;
-    cursor: pointer;
-    padding: 13px 15px;
-    border-radius: 50%;
-    outline: none;
-}
+        .buttons button {
+            border: 2px solid #e5ebf3;
+            background-color: transparent;
+            color: #e5ebf3;
+            cursor: pointer;
+            padding: 13px 15px;
+            border-radius: 50%;
+            outline: none;
+        }
 
-.buttons button:hover {
-    background-color: #e5ebf3;
-    color: #362a2b;
-}
-
+        .buttons button:hover {
+            background-color: #e5ebf3;
+            color: #362a2b;
+        }
     </style>
 </head>
 
@@ -115,7 +113,12 @@
                     Championship (the first and only London team to do so), ranked the 2nd European team at the Spaceport
                     America Cup, the biggest student rocketry competition in the world, <strong> <span
                             style="color: #ffdf00;">beating out over 100 </span></strong> global contenders. </em></p>
+
+            <!-- Added buttons below -->
+            <button class="btn large my-color rounded threeD" type="button" onclick="navigate('https://charming-ice-3a0.notion.site/Join-Us-d9897845a4634efd8895b04feb0e3540?pvs=4')">Join Us</button>
+            <button class="btn large purple rounded threeD" type="button" onclick="navigate('mailto:ibrahim.chehimi.21@ucl.ac.uk?subject=Looking%20to%20Sponsor')">Sponsor Us</button>
         </div>
+        
         <div class="slider-container">
             <div class="slider">
                 <div class="slide current"
@@ -127,8 +130,8 @@
                 <div class="slide"
                     style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png') no-repeat center top/cover;">
                 </div>
-
-                 <div class="buttons">
+            </div>
+            <div class="buttons">
                 <button id="prev"><i class="fas fa-arrow-left"></i></button>
                 <button id="next"><i class="fas fa-arrow-right"></i></button>
             </div>
@@ -136,54 +139,14 @@
     </div>
 
     <script>
-        const slides = document.querySelectorAll(".slide");
-const nextButton = document.getElementById("next");
-const prevButton = document.getElementById("prev");
-const auto = true;
-const intervalTime = 5000;
-let slideInterval;
-let currentIndex = 0;
-
-const showSlide = (index) => {
-    slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.classList.add("current");
-        } else {
-            slide.classList.remove("current");
+        // Your existing script code here
+        function navigate(url) {
+            if (url.startsWith('mailto:')) {
+                window.open(url, '_blank').focus();
+            } else {
+                window.open(url, '_parent').focus();
+            }
         }
-    });
-};
-
-const nextSlide = () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-};
-
-const prevSlide = () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-};
-
-nextButton.addEventListener("click", () => {
-    nextSlide();
-    if (auto) {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, intervalTime);
-    }
-});
-
-prevButton.addEventListener("click", () => {
-    prevSlide();
-    if (auto) {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, intervalTime);
-    }
-});
-
-if (auto) {
-    slideInterval = setInterval(nextSlide, intervalTime);
-}
-
     </script>
 
 </body>
