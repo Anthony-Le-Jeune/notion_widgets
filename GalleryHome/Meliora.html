@@ -21,7 +21,7 @@
         .content-container {
             display: flex;
             flex: 1;
-            min-height: 100vh
+            min-height: 100vh;
         }
 
         .text-container {
@@ -45,9 +45,9 @@
         .slider {
             position: absolute;
             top: 0;
-            right: 0;
-            bottom: 0;
             left: 0;
+            bottom: 0;
+            right: 0;
         }
 
         .slide {
@@ -137,15 +137,23 @@
     <div class="content-container">
         <div class="text-container">
             <h2><u>Meliora</u></h2>
-            <p>Our Meliora competition team is unwaveringly committed to spearheading our most extensive and ambitious projects, whether for competitive endeavors or groundbreaking exploration. Having emerged victorious among a pool of more than 100 contenders at the Spaceport America Cup, we at Meliora have not only met but far exceeded all expectations. </p>
+            <p>Our Meliora competition team is unwaveringly committed to spearheading our most extensive and ambitious
+                projects, whether for competitive endeavors or groundbreaking exploration. Having emerged victorious
+                among a pool of more than 100 contenders at the Spaceport America Cup, we at Meliora have not only met
+                but far exceeded all expectations. </p>
 
-<p><Strong>Now,</Strong> picture us aiming even higher—we're set on being the <Strong>first</Strong> European student team to reach space with a bi-propellant liquid rocket engine. As we gear up for EuRoC-25, our record breaking ambitions remain steadfast as we continue to redefine the bounds student-led space exploration.</p>
+            <p><b>Now,</b> picture us aiming even higher—we're set on being the <b>first</b> European student team to
+                reach space with a bi-propellant liquid rocket engine. As we gear up for EuRoC-25, our record-breaking
+                ambitions remain steadfast as we continue to redefine the bounds of student-led space exploration.</p>
 
             <p> </p>
 
             <!-- Updated buttons below -->
-            <button class="custom-button my-color rounded threeD" onclick="navigate('https://charming-ice-3a0.notion.site/Meliora-a87a79038e3e4553b5ebf830df5f3fc7')">Learn More</button>
-            <button class="custom-button purple rounded threeD" onclick="navigate('mailto:ibrahim.chehimi.21@ucl.ac.uk?subject=Looking%20to%20Sponsor')">Sponsor Us</button>
+            <button class="custom-button my-color rounded threeD"
+                onclick="navigate('https://charming-ice-3a0.notion.site/Meliora-a87a79038e3e4553b5ebf830df5f3fc7')">Learn
+                More</button>
+            <button class="custom-button purple rounded threeD"
+                onclick="navigate('mailto:ibrahim.chehimi.21@ucl.ac.uk?subject=Looking%20to%20Sponsor')">Sponsor Us</button>
         </div>
 
         <div class="slider-container">
@@ -168,62 +176,7 @@
     </div>
 
     <script>
-
-        const slides = document.querySelectorAll(".slide");
-const nextButton = document.getElementById("next");
-const prevButton = document.getElementById("prev");
-const auto = true;
-const intervalTime = 5000;
-let slideInterval;
-let currentIndex = 0;
-
-const showSlide = (index) => {
-    slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.classList.add("current");
-        } else {
-            slide.classList.remove("current");
-        }
-    });
-};
-
-const nextSlide = () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-};
-
-const prevSlide = () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-};
-
-nextButton.addEventListener("click", () => {
-    nextSlide();
-    if (auto) {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, intervalTime);
-    }
-});
-
-prevButton.addEventListener("click", () => {
-    prevSlide();
-    if (auto) {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, intervalTime);
-    }
-});
-
-if (auto) {
-    slideInterval = setInterval(nextSlide, intervalTime);
-}
         // Your existing script code here
-        function navigate(url) {
-            if (url.startsWith('mailto:')) {
-                window.open(url, '_blank').focus();
-            } else {
-                window.open(url, '_parent').focus();
-            }
-        }
     </script>
 
 </body>
