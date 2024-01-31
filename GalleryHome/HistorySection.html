@@ -7,74 +7,80 @@
     <title>Your Webpage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
-        <style>
-    /* Add your existing styles here */
+    <style>
+        /* Add your existing styles here */
 
-    .content-container {
-        display: flex;
-        align-items: center;
-    }
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
 
-    .text-container {
-        flex: 1;
-        padding-right: 20px;
-    }
+        .content-container {
+            display: flex;
+            flex: 1;
+        }
 
-    .slider-container {
-        flex: 1;
-    }
+        .text-container {
+            flex: 1;
+            padding: 20px;
+        }
 
-    .slider {
-        position: relative;
-        width: 100%;
-        height: 50vh;
-        overflow: hidden;
-    }
+        .slider-container {
+            flex: 1;
+            height: calc(100vh - 40px); /* Adjust the height based on your design */
+            position: relative;
+            overflow: hidden;
+        }
 
-    .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        opacity: 0;
-        transition: opacity 0.4s ease-in-out;
-        background-size: cover; /* Change this line to crop the height and cover the width */
-        background-position: center top;
-    }
+        .slider {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
 
-    .slide.current {
-        opacity: 1;
-    }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            background-size: cover; /* Change this line to crop the height and cover the width */
+            background-position: center top;
+        }
 
-    .buttons {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
+        .slide.current {
+            opacity: 1;
+        }
 
-    .buttons button {
-        border: 2px solid #e5ebf3;
-        background-color: transparent;
-        color: #e5ebf3;
-        cursor: pointer;
-        padding: 13px 15px;
-        border-radius: 50%;
-        outline: none;
-    }
+        .buttons {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .buttons button:hover {
-        background-color: #e5ebf3;
-        color: #362a2b;
-    }
-</style>
+        .buttons button {
+            border: 2px solid #e5ebf3;
+            background-color: transparent;
+            color: #e5ebf3;
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding: 13px 15px;
+        }
 
-
+        .buttons button:hover {
+            background-color: #e5ebf3;
+            color: #362a2b;
+        }
+    </style>
 </head>
 
 <body>
@@ -96,14 +102,19 @@
         </div>
         <div class="slider-container">
             <div class="slider">
-                <div class="slide current" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/45676958.png') no-repeat center top/cover;"></div>
-                <div class="slide" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/345678954.png') no-repeat center top/cover;"></div>
-                <div class="slide" style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png') no-repeat center top/cover;"></div>
-
-                <div class="buttons">
-                    <button id="prev"><i class="fas fa-arrow-left"></i></button>
-                    <button id="next"><i class="fas fa-arrow-right"></i></button>
+                <div class="slide current"
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/45676958.png') no-repeat center top/cover;">
                 </div>
+                <div class="slide"
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/345678954.png') no-repeat center top/cover;">
+                </div>
+                <div class="slide"
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/78654678.png') no-repeat center top/cover;">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev"><i class="fas fa-arrow-left"></i></button>
+                <button id="next"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
     </div>
