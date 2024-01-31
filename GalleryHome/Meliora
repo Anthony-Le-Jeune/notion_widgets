@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <style>
+        /* Add your existing styles here */
+
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .content-container {
+            display: flex;
+            flex: 1;
+            min-height: 100vh
+        }
+
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            font-size: 16px;
+            min-height: 100%;
+        }
+
+        .text-container h2 {
+            font-size: 28px; /* Change the value to your desired font size */
+        }
+
+        .slider-container {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            background-size: cover; /* Change this line to crop the height and cover the width */
+            background-position: center top;
+        }
+
+        .slide.current {
+            opacity: 1;
+        }
+
+        .buttons button#prev {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-0%);
+        }
+
+        .buttons button#next {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-0%);
+        }
+
+        .buttons button {
+            border: 2px solid #e5ebf3;
+            background-color: transparent;
+            color: #e5ebf3;
+            cursor: pointer;
+            padding: 13px 15px;
+            border-radius: 50%;
+            outline: none;
+        }
+
+        .buttons button:hover {
+            background-color: #e5ebf3;
+            color: #362a2b;
+        }
+
+        /* Added styles for the new buttons */
+        .custom-button {
+            background: none;
+            color: #ffffff; /* White text color */
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            text-align: center;
+            font-family: 'Manrope';
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 60px; /* Adjust the padding as needed */
+            font-size: 18px; /* Adjust the font size as needed */
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .custom-button.my-color {
+            background-color: #34495e; /* My Color background */
+        }
+
+        .custom-button.my-color:hover {
+            background-color: #2c3e50; /* My Color accent on hover */
+        }
+
+        .custom-button.purple {
+            background-color: #8a508f; /* Purple background */
+        }
+
+        .custom-button.purple:hover {
+            background-color: #5d3661; /* Purple accent on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content-container">
+        <div class="text-container">
+            <h2><u>Meliora</u></h2>
+            <p>Our Meliora competition team is unwaveringly committed to spearheading our most extensive and ambitious projects, whether for competitive endeavors or groundbreaking exploration. Having emerged victorious among a pool of more than 100 contenders at the Spaceport America Cup, we at Meliora have not only met but far exceeded all expectations. </p>
+
+<p><Strong>Now,</Strong> picture us aiming even higher—we're set on being the <Strong>first</Strong> European student team to reach space with a bi-propellant liquid rocket engine. As we gear up for EuRoC-25, our record breaking ambitions remain steadfast as we continue to redefine the bounds student-led space exploration.</p>
+
+            <p> </p>
+
+            <!-- Updated buttons below -->
+            <button class="custom-button my-color rounded threeD" onclick="navigate('https://charming-ice-3a0.notion.site/Meliora-a87a79038e3e4553b5ebf830df5f3fc7')">Learn More</button>
+            <button class="custom-button purple rounded threeD" onclick="navigate('mailto:ibrahim.chehimi.21@ucl.ac.uk?subject=Looking%20to%20Sponsor')">Sponsor Us</button>
+        </div>
+
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide current"
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/IMG_20230607_123330.jpg') no-repeat center top/cover;">
+                </div>
+                <div class="slide"
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/IMG_20230607_131627.jpg') no-repeat center top/cover;">
+                </div>
+                <div class="slide"
+                    style="background: url('https://anthony-le-jeune.github.io/notion_widgets/847269392.png') no-repeat center top/cover;">
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev"><i class="fas fa-arrow-left"></i></button>
+                <button id="next"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const slides = document.querySelectorAll(".slide");
+const nextButton = document.getElementById("next");
+const prevButton = document.getElementById("prev");
+const auto = true;
+const intervalTime = 5000;
+let slideInterval;
+let currentIndex = 0;
+
+const showSlide = (index) => {
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.add("current");
+        } else {
+            slide.classList.remove("current");
+        }
+    });
+};
+
+const nextSlide = () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+};
+
+const prevSlide = () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+};
+
+nextButton.addEventListener("click", () => {
+    nextSlide();
+    if (auto) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+});
+
+prevButton.addEventListener("click", () => {
+    prevSlide();
+    if (auto) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+});
+
+if (auto) {
+    slideInterval = setInterval(nextSlide, intervalTime);
+}
+        // Your existing script code here
+        function navigate(url) {
+            if (url.startsWith('mailto:')) {
+                window.open(url, '_blank').focus();
+            } else {
+                window.open(url, '_parent').focus();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
