@@ -137,44 +137,53 @@
 
     <script>
         const slides = document.querySelectorAll(".slide");
-        const nextButton = document.getElementById("next");
-        const prevButton = document.getElementById("prev");
-        const auto = true;
-        const intervalTime = 5000;
-        let slideInterval;
+const nextButton = document.getElementById("next");
+const prevButton = document.getElementById("prev");
+const auto = true;
+const intervalTime = 5000;
+let slideInterval;
+let currentIndex = 0;
 
-        const nextSlide = () => {
-            const current = document.querySelector(".current");
-            current.classList.remove("current");
-            const next = current.nextElementSibling || slides[0];
-            next.classList.add("current");
-        };
-
-        const prevSlide = () => {
-            const current = document.querySelector(".current");
-            current.classList.remove("current");
-            const prev = current.previousElementSibling || slides[slides.length - 1];
-            prev.classList.add("current");
-        };
-
-        nextButton.addEventListener("click", () => {
-            nextSlide();
-            if (auto) {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, intervalTime);
-            }
-        });
-        prevButton.addEventListener("click", () => {
-            prevSlide();
-            if (auto) {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, intervalTime);
-            }
-        });
-
-        if (auto) {
-            slideInterval = setInterval(nextSlide, intervalTime);
+const showSlide = (index) => {
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.add("current");
+        } else {
+            slide.classList.remove("current");
         }
+    });
+};
+
+const nextSlide = () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+};
+
+const prevSlide = () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+};
+
+nextButton.addEventListener("click", () => {
+    nextSlide();
+    if (auto) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+});
+
+prevButton.addEventListener("click", () => {
+    prevSlide();
+    if (auto) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+});
+
+if (auto) {
+    slideInterval = setInterval(nextSlide, intervalTime);
+}
+
     </script>
 
 </body>
