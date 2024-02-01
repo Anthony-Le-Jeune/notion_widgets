@@ -10,21 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 	
-   <script>
-        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-        }
-
-        function navigate(url) {
-            if (url.startsWith('mailto:')) {
-                window.open(url, '_blank').focus();
-            } else {
-                window.open(url, '_parent').focus();
-            }
-        }
-    </script>
     
     <style>
     /* Add your existing styles here */
@@ -649,7 +635,22 @@
       }
 
     </script>
+	
+<script>
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    if (isDarkMode) {
+        document.querySelector('body').classList.add('dark-mode');
+    }
+
+    function navigate(url) {
+        if (url.startsWith('mailto:')) {
+            window.open(url, '_blank').focus();
+        } else {
+            window.open(url, '_parent').focus();
+        }
+    }
+</script>
 
 </body>
 
