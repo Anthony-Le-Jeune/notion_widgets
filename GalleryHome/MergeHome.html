@@ -22,9 +22,7 @@
         line-height: 1.5;
     }
 
-	    .dark-mode .body a {
-			color: #ffffff;
-		}
+	   
 
     .content-container {
         display: flex;
@@ -230,6 +228,48 @@
     }
     
 </style>
+
+	<script>
+        // Add a variable to detect dark mode
+        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Apply the dark mode class to the body if detected
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        }
+
+        function navigate(url) {
+            if (url.startsWith('mailto:')) {
+                window.open(url, '_blank').focus();
+            } else {
+                window.open(url, '_parent').focus();
+            }
+        }
+    </script>
+
+    <style>
+        /* Existing styles remain unchanged */
+
+        /* Add styles for text color in dark mode */
+        .dark-mode .text-container,
+        .dark-mode .custom-button,
+        .dark-mode h2,
+        .dark-mode h3,
+        .dark-mode p {
+            color: #ffffff;
+        }
+
+        .dark-mode .buttons button,
+        .dark-mode .social span {
+            color: #ffffff !important;
+        }
+
+        .dark-mode .buttons button:hover,
+        .dark-mode .social:hover {
+            background-color: #e5ebf3;
+            color: #362a2b !important;
+        }
+    </style>
 
 </head>
 
@@ -614,9 +654,7 @@
         
       }
 
-	if (isDarkMode) {
-				document.body.classList.add('dark-mode');
-			}
+	
 
     </script>
 
