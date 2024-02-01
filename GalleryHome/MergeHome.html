@@ -22,6 +22,10 @@
         line-height: 1.5;
     }
 
+	    .dark-mode .body a {
+			color: #ffffff;
+		}
+
     .content-container {
         display: flex;
         flex: 1;
@@ -609,6 +613,10 @@
         
         
       }
+
+	if (isDarkMode) {
+				document.body.classList.add('dark-mode');
+			}
 
     </script>
 
